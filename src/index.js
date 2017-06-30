@@ -40,10 +40,11 @@ const dogTable = [
 
 // Image Sizes: Small - 720w x 480h, Large - 1200w x 800h
 
+// Use your own S3 Bucket here.
 const imgTable = [
-    "https://s3.amazonaws.com/raindex/smallDog.png", // Small dog image
-    "https://s3.amazonaws.com/raindex/mediumDog.png", // Medium Dog image
-    "https://s3.amazonaws.com/raindex/largeDog.png" // Large dog image.
+    "https://s3.amazonaws.com/YOUR-S3-BUCKET/smallDog.png", // Small dog image
+    "https://s3.amazonaws.com/YOUR-S3-BUCKET/mediumDog.png", // Medium Dog image
+    "https://s3.amazonaws.com/YOUR-S3-BUCKET/largeDog.png" // Large dog image.
 ]
 // Icon Sizes are 108 x 108 and 512 x 512
 const averageYear = 365.25;
@@ -83,7 +84,7 @@ const dateFormat = "YYYY-MM-DD"; // Date format returned by the Alexa delegate.
 'use strict';
 var Alexa = require('alexa-sdk');
 var moment = require('moment');
-var APP_ID = "amzn1.ask.skill.44ff31ff-b2bc-488d-8f0a-c11a45e87dc5";
+var APP_ID = ''; // amzn1.echo-sdk-ams.app.your-skill-id
 
 var handlers = {
     'LaunchRequest': function () {
