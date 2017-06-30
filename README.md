@@ -10,6 +10,12 @@ because it was better suited than the built-in Date javascript object.  I have u
 using SSML and the skill currently only supports US English, although there are guides to expanding the application into
 other languages (I speak a little Spanish and some Dutch so maybe those might be the next two entries?).
 
+# Installing Code
+The code was developed on a Mac and uploaded to Amazon's Lambda service and Alexa speech development site.  npm install will 
+install the support libraries and a "f.sh" script simply zips up the local files in preparation for upload.  The grammar
+supports synonyms which can be expanded; the grammar must be cut-and-pasted into the Alexa Speech Development site rather than
+entered in individually since the current GUI does not support synonyms.
+
 # Room For Improvement
 The date values can be better cleaned up for boundary cases such as "Today", "Tomorrow", etc.  An utterance on 6/29 yielded
 "2017-W27" from the speech object so we should add some better error checking for bad items from the grammar.  It would be 
@@ -25,3 +31,5 @@ pet stores for advertising.  The images are hosted in my S3 account so I don't k
 of hits should this application become popular.  I should probably inform users to check the mobile application for hard
 copies of the results (perhaps formatting the dates to be more localized).  The mobile app card/web card could be used for
 adding advertising as well.
+
+
