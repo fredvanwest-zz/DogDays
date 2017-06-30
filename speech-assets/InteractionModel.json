@@ -1,0 +1,181 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "dogDaysIntent",
+      "samples": [
+        "She is a {dogSize} dog",
+        "He is a  {dogSize} dog",
+        "She was born on {dogBirthdate}",
+        "He was born on {dogBirthdate} ",
+        "My {dogSize} dog was born on {dogBirthdate} ",
+        "He is a {dogSize} dog born on {dogBirthdate}",
+        "She is a {dogSize} dog born on {dogBirthdate}",
+        "How old is my {dogSize} born on {dogBirthdate}",
+        "{dogSize} dog",
+        "{dogSize} size dog",
+        "for a {dogSize} dog",
+        "for a {dogSize} size dog",
+        "for a {dogSize} dog born on {dogBirthdate}",
+        "for a {dogSize} size dog born on {dogBirthdate}"
+      ],
+      "slots": [
+        {
+          "name": "dogSize",
+          "type": "DOG_SIZES",
+          "samples": [
+            "She is {dogSize} ",
+            "He is {dogSize} ",
+            "My dog is {dogSize} ",
+            "He is a {dogSize} dog",
+            "He is a {dogSize} size dog",
+            "She is a {dogSize} dog",
+            "She is a {dogSize} size dog",
+            "{dogSize} size",
+            "{dogSize}",
+            "{dogSize} dog",
+            "{dogSize} size dog"
+          ]
+        },
+        {
+          "name": "dogBirthdate",
+          "type": "AMAZON.DATE",
+          "samples": [
+            "My dog was born on {dogBirthdate}",
+            "She was born on {dogBirthdate}",
+            "He was born on {dogBirthdate}",
+            "His birthday is {dogBirthdate}",
+            "His birthdate is {dogBirthdate}",
+            "His birthday was {dogBirthdate}",
+            "His birthday will be on {dogBirthdate}",
+            "Her birthdate is {dogBirthdate}",
+            "Her birthday was {dogBirthdate}",
+            "Her birthday is {dogBirthdate}",
+            "Her birthday will be {dogBirthdate}",
+            "{dogBirthdate} ",
+            "on {dogBirthdate} "
+          ]
+        }
+      ]
+    }
+  ],
+  "types": [
+    {
+      "name": "DOG_SIZES",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "small",
+            "synonyms": [
+              "tiny",
+              "itty bitty",
+              "very small",
+              "small size"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "medium",
+            "synonyms": [
+              "regular",
+              "regular size",
+              "medium size"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "large",
+            "synonyms": [
+              "big",
+              "humongous",
+              "great big",
+              "big size"
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-dogDaysIntent.IntentSlot-dogSize",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What size is your dog?"
+        },
+        {
+          "type": "PlainText",
+          "value": "I can give dates for small, medium or large dogs.  How big is your dog?"
+        },
+        {
+          "type": "PlainText",
+          "value": "Small dogs are under twenty pounds, large dogs are more than fifty pounds and medium dogs are in between.. What's your dog's size?"
+        }
+      ]
+    },
+    {
+      "id": "Elicit.Intent-dogDaysIntent.IntentSlot-dogBirthdate",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "If you're not sure of the exact date, use January first for the date of the year.  When was your dog born?"
+        },
+        {
+          "type": "PlainText",
+          "value": "I need to know when your dog was born.  When was that?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "dogDaysIntent",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "dogSize",
+            "type": "DOG_SIZES",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-dogDaysIntent.IntentSlot-dogSize"
+            }
+          },
+          {
+            "name": "dogBirthdate",
+            "type": "AMAZON.DATE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-dogDaysIntent.IntentSlot-dogBirthdate"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
