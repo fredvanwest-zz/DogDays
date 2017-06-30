@@ -16,6 +16,10 @@ install the support libraries and a "f.sh" script simply zips up the local files
 supports synonyms which can be expanded; the grammar must be cut-and-pasted into the Alexa Speech Development site rather than
 entered in individually since the current GUI does not support synonyms.
 
+# Tests subfolder
+I added these from the planMyTrip example but I haven't yet updated them for DogDays since I did my testing interactively.
+A full regression tester would be a nice enhancement under Room For Improvement especially since the data sets are minimal.
+
 # Room For Improvement
 The date values can be better cleaned up for boundary cases such as "Today", "Tomorrow", etc.  An utterance on 6/29 yielded
 "2017-W27" from the speech object so we should add some better error checking for bad items from the grammar.  It would be 
